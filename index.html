@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bishwas Acharya | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Profile */
+        .profile {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .profile img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2563eb;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .profile h1 {
+            font-size: 2.5rem;
+            margin: 0.5rem 0 0.2rem;
+        }
+
+        .profile h1 span {
+            color: #2563eb;
+        }
+
+        .profile p {
+            font-size: 1.1rem;
+            color: #475569;
+        }
+
+        .profile p strong {
+            color: #2563eb;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            border-radius: 16px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        /* Skills */
+        .skill {
+            margin-bottom: 1rem;
+        }
+
+        .skill .label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+
+        .bar {
+            background: #e2e8f0;
+            height: 10px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .bar .fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            border-radius: 20px;
+            width: 0%;
+        }
+
+        /* Timeline (Roadmap) */
+        .timeline {
+            list-style: none;
+            border-left: 3px solid #2563eb;
+            padding-left: 1.5rem;
+        }
+
+        .timeline li {
+            margin: 0.8rem 0;
+            padding-left: 0.5rem;
+            position: relative;
+        }
+
+        .timeline li::before {
+            content: "";
+            position: absolute;
+            left: -1.85rem;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2563eb;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #2563eb;
+        }
+
+        .timeline li.done::before { background: #22c55e; }
+        .timeline li.pending::before { background: #facc15; }
+        .timeline li.future::before { background: #94a3b8; }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-card {
+            background: #f8fafc;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        .project-card h3 {
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* Contact */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: #1e293b;
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .profile h1 { font-size: 2rem; }
+            section { padding: 1.2rem; }
+            .project-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Profile -->
+    <div class="profile">
+        <img src="profilepic.jpg" alt="Bishwas Acharya">
+        <h1>Bishwas <span>Acharya</span></h1>
+        <p>BCA Student | Aspiring <strong>Cyber Security</strong> Professional</p>
+    </div>
+
+    <!-- About -->
+    <section>
+        <h2>About Me</h2>
+        <p>Hello! I'm Bishwas Acharya, a BCA Semester I student with a passion for Cyber Security & Ethical Hacking. I'm building my skills step by step and aim to protect digital assets.</p>
+    </section>
+
+    <!-- Skills -->
+    <section>
+        <h2>Skills Progress</h2>
+        <div class="skill">
+            <div class="label"><span>HTML &amp; CSS</span><span>65%</span></div>
+            <div class="bar"><div class="fill" style="width:65%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="label"><span>JavaScript</span><span>40%</span></div>
+            <div class="bar"><div class="fill" style="width:40%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="label"><span>Linux</span><span>50%</span></div>
+            <div class="bar"><div class="fill" style="width:50%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="label"><span>Cyber Security</span><span>35%</span></div>
+            <div class="bar"><div class="fill" style="width:35%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="label"><span>Java / C</span><span>30%</span></div>
+            <div class="bar"><div class="fill" style="width:30%;"></div></div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section>
+        <h2>Cyber Security Roadmap</h2>
+        <ul class="timeline">
+            <li class="done">✔ Programming Fundamentals</li>
+            <li class="done">✔ Linux Basics</li>
+            <li class="done">✔ Web Technologies (HTML, CSS, JS)</li>
+            <li class="pending">⏳ Networking Basics</li>
+            <li class="pending">⏳ Ethical Hacking (Beginner)</li>
+            <li class="future">🔒 Advanced Security (CEH, OSCP)</li>
+        </ul>
+    </section>
+
+    <!-- Projects -->
+    <section>
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>🔐 Password Analyzer</h3>
+                <p>Python tool to check password strength.</p>
+            </div>
+            <div class="project-card">
+                <h3>🌐 Network Scanner</h3>
+                <p>ARP‑based scanner to list devices on a network.</p>
+            </div>
+            <div class="project-card">
+                <h3>📝 CTF Writeups</h3>
+                <p>Documentation of Capture The Flag challenges.</p>
+            </div>
+        </div>
+        <p style="margin-top:1rem; color:#64748b;">More coming soon 🚀</p>
+    </section>
+
+    <!-- Contact -->
+    <section>
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope" style="color:#2563eb;"></i> <a href="mailto:bishwasacharya.tech@gmail.com">bishwasacharya.tech@gmail.com</a></p>
+            <div class="social-icons">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Bishwas Acharya &bull; Built with <i class="fas fa-heart" style="color:#ef4444;"></i>
+    </footer>
+
+</div>
+
+<!-- Optional smooth scrolling for skill bars (already set) -->
+<script>
+    // Animate bars when they appear (just for fun)
+    const fills = document.querySelectorAll('.fill');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.transition = 'width 1.2s ease';
+            }
+        });
+    }, { threshold: 0.3 });
+    fills.forEach(fill => observer.observe(fill));
+</script>
+
+</body>
+</html>
