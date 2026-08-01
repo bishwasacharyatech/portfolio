@@ -43,14 +43,25 @@
             border: 4px solid #38bdf8;
             box-shadow: 0 0 40px rgba(56, 189, 248, 0.25);
         }
+.profile h1 {
+    font-size: 2.8rem;
+    margin: 0.8rem 0 0.2rem;
 
-        .profile h1 {
-            font-size: 2.8rem;
-            margin: 0.8rem 0 0.2rem;
-            background: linear-gradient(135deg, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    /* Fallback color for unsupported browsers */
+    color: #38bdf8;
+
+    /* Gradient background */
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+
+    /* Clip background to text (prefixed + standard) */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* Make text transparent so background shows through */
+    -webkit-text-fill-color: transparent;
+
+    /* Ensure element is block/inline-block (h1 is block, so fine) */
+}
 
         .profile .title {
             font-size: 1.2rem;
