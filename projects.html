@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Projects by Bishwas Acharya — web applications and security learning projects.">
+<meta name="theme-color" content="#0d1117" id="theme-color-meta">
+<title>Projects | Bishwas Acharya</title>
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('bishwas-theme');
+      if (t) {
+        document.documentElement.dataset.theme = t;
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.content = t === 'light' ? '#f5f8fc' : '#0d1117';
+      }
+    } catch (e) {}
+    document.documentElement.classList.add('js');
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-line" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Bishwas Acharya home">
+      <span class="brand-mark" aria-hidden="true">BA.</span>
+      <span>Bishwas <span class="accent">Acharya</span></span>
+    </a>
+
+    <nav class="nav-links" id="primary-nav" data-nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="learning.html">Learning</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" data-theme-toggle type="button" aria-label="Switch to light theme">☼</button>
+      <a class="btn btn-primary btn-small" href="contact.html">Get in touch ↗</a>
+      <button class="menu-btn" data-menu-toggle type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Projects</div>
+      <div class="eyebrow">Selected work</div>
+      <h1>Things I have built and <span class="gradient-text">things I am building.</span></h1>
+      <p class="lead">A mix of academic projects, learning utilities and experiments. Filter by category to explore.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Web</button>
+        <button class="filter-btn" type="button" data-filter="security" aria-pressed="false">Security</button>
+        <button class="filter-btn" type="button" data-filter="academic" aria-pressed="false">Academic</button>
+      </div>
+
+      <div class="grid grid-2">
+
+        <article class="card project-card reveal" data-category="web">
+          <div class="card-kicker">Web application · Academic</div>
+          <h3>Cyber Crime Complaint System</h3>
+          <p>A web platform concept for submitting cyber-crime complaints, tracking status and providing an administrative workflow for handling reports.</p>
+          <div class="tag-row">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">PHP / MySQL</span>
+          </div>
+          <div class="project-bottom">
+            <span class="project-status">Academic project</span>
+            <a class="btn btn-secondary btn-small" href="contact.html">Ask about it ↗</a>
+          </div>
+        </article>
+
+        <article class="card project-card reveal" data-category="security">
+          <div class="card-kicker">Security tooling · Learning</div>
+          <h3>Password Strength Checker</h3>
+          <p>A proposed utility that evaluates password quality using length, complexity and common-pattern checks, with clear feedback for users.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Security basics</span>
+          </div>
+          <div class="project-bottom">
+            <span class="project-status">Learning project</span>
+            <a class="btn btn-secondary btn-small" href="contact.html">Ask about it ↗</a>
+          </div>
+        </article>
+
+        <article class="card project-card reveal" data-category="web">
+          <div class="card-kicker">Portfolio · Web</div>
+          <h3>Personal Portfolio Website</h3>
+          <p>A responsive portfolio with dark/light theme, scroll progress, project filtering and accessible navigation — the site you are viewing now.</p>
+          <div class="tag-row">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="project-bottom">
+            <span class="project-status">Live</span>
+            <a class="btn btn-secondary btn-small" href="index.html">View home ↗</a>
+          </div>
+        </article>
+
+        <article class="card project-card reveal" data-category="security">
+          <div class="card-kicker">Linux · Security</div>
+          <h3>Linux Hardening Notes</h3>
+          <p>A documented set of practical Linux hardening steps: user management, permissions, service review and update routines for a small server.</p>
+          <div class="tag-row">
+            <span class="tag">Linux</span>
+            <span class="tag">Security</span>
+            <span class="tag">Documentation</span>
+          </div>
+          <div class="project-bottom">
+            <span class="project-status">In progress</span>
+            <a class="btn btn-secondary btn-small" href="contact.html">Ask about it ↗</a>
+          </div>
+        </article>
+
+        <article class="card project-card reveal" data-category="academic">
+          <div class="card-kicker">Database · Academic</div>
+          <h3>Student Record Management</h3>
+          <p>A small CRUD application for managing student records with a simple database schema, search and basic reporting.</p>
+          <div class="tag-row">
+            <span class="tag">MySQL</span>
+            <span class="tag">PHP</span>
+            <span class="tag">CRUD</span>
+          </div>
+          <div class="project-bottom">
+            <span class="project-status">Academic project</span>
+            <a class="btn btn-secondary btn-small" href="contact.html">Ask about it ↗</a>
+          </div>
+        </article>
+
+        <article class="card project-card reveal" data-category="security">
+          <div class="card-kicker">Networking · Lab</div>
+          <h3>Network Scanning Lab</h3>
+          <p>A controlled lab exercise using common network discovery tools to understand open ports, services and basic attack surface mapping.</p>
+          <div class="tag-row">
+            <span class="tag">Networking</span>
+            <span class="tag">Nmap</span>
+            <span class="tag">Ethical testing</span>
+          </div>
+          <div class="project-bottom">
+            <span class="project-status">Lab exercise</span>
+            <a class="btn btn-secondary btn-small" href="contact.html">Ask about it ↗</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© <span data-year></span> Bishwas Acharya. Built with care.</span>
+    <div class="footer-links">
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:bishwasacharya.tech@gmail.com">Email</a>
+    </div>
+    <span class="mono">LEARN · BUILD · SECURE</span>
+  </div>
+</footer>
+
+<button class="back-top" type="button" aria-label="Back to top">↑</button>
+<script src="assets/app.js"></script>
+</body>
+</html>

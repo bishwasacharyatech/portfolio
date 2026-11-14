@@ -1,507 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bishwas Acharya | Cyber Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bishwas Acharya — BCA student building foundations in cybersecurity, Linux, networking and software development.">
+<meta name="theme-color" content="#0d1117" id="theme-color-meta">
+<title>Cybersecurity Portfolio | Bishwas Acharya</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0e1a;
-            color: #e0e7ff;
-            line-height: 1.6;
-            padding: 2rem 1rem;
-        }
+<!-- Apply saved theme before first paint (prevents light/dark flash) -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('bishwas-theme');
+      if (t) {
+        document.documentElement.dataset.theme = t;
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.content = t === 'light' ? '#f5f8fc' : '#0d1117';
+      }
+    } catch (e) {}
+    document.documentElement.classList.add('js');
+  })();
+</script>
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* Profile */
-        .profile {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.15);
-        }
-
-        .profile img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #38bdf8;
-            box-shadow: 0 0 40px rgba(56, 189, 248, 0.25);
-        }
-.profile h1 {
-    font-size: 2.8rem;
-    margin: 0.8rem 0 0.2rem;
-
-    /* Fallback color for unsupported browsers */
-    color: #38bdf8;
-
-    /* Gradient background */
-    background: linear-gradient(135deg, #38bdf8, #818cf8);
-
-    /* Clip background to text (prefixed + standard) */
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    /* Make text transparent so background shows through */
-    -webkit-text-fill-color: transparent;
-
-    /* Ensure element is block/inline-block (h1 is block, so fine) */
-}
-
-        .profile .title {
-            font-size: 1.2rem;
-            color: #94a3b8;
-        }
-
-        .profile .title span {
-            color: #38bdf8;
-            -webkit-text-fill-color: #38bdf8;
-        }
-
-        /* Sections */
-        section {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: #38bdf8;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid rgba(56, 189, 248, 0.2);
-            padding-bottom: 0.5rem;
-        }
-
-        h2 i {
-            font-size: 1.4rem;
-            color: #818cf8;
-        }
-
-        /* Skills */
-        .skill {
-            margin-bottom: 1.2rem;
-        }
-
-        .skill .label {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 500;
-            margin-bottom: 3px;
-        }
-
-        .bar {
-            background: #1e293b;
-            height: 10px;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .bar .fill {
-            height: 100%;
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
-            border-radius: 20px;
-            width: 0%;
-            transition: width 1.2s ease;
-        }
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 600px) {
-            .skill-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Badges */
-        .badge {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.12);
-            color: #38bdf8;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(56, 189, 248, 0.15);
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Timeline */
-        .timeline {
-            list-style: none;
-            border-left: 3px solid #38bdf8;
-            padding-left: 1.8rem;
-        }
-
-        .timeline li {
-            margin: 0.8rem 0;
-            padding-left: 0.5rem;
-            position: relative;
-        }
-
-        .timeline li::before {
-            content: "";
-            position: absolute;
-            left: -2.1rem;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #38bdf8;
-            border: 2px solid #0a0e1a;
-            box-shadow: 0 0 0 2px #38bdf8;
-        }
-
-        .timeline li.done::before { background: #22c55e; box-shadow: 0 0 0 2px #22c55e; }
-        .timeline li.pending::before { background: #facc15; box-shadow: 0 0 0 2px #facc15; }
-        .timeline li.future::before { background: #64748b; box-shadow: 0 0 0 2px #64748b; }
-
-        /* Projects */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            border-color: #38bdf8;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.08);
-        }
-
-        .project-card h3 {
-            color: #38bdf8;
-            margin-bottom: 0.3rem;
-        }
-
-        .project-card .tech {
-            margin-top: 0.8rem;
-        }
-
-        .project-card .tech span {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.08);
-            color: #94a3b8;
-            padding: 0.15rem 0.7rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            margin-right: 0.3rem;
-            border: 1px solid rgba(56, 189, 248, 0.06);
-        }
-
-        .project-card p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-        }
-
-        /* Contact */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-        }
-
-        .contact-info a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .social-icons a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            color: #94a3b8;
-            font-size: 1.2rem;
-            transition: 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .social-icons a:hover {
-            background: #38bdf8;
-            color: #0a0e1a;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1.5rem 0;
-            color: #64748b;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        footer .heart {
-            color: #ef4444;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .profile h1 { font-size: 2rem; }
-            section { padding: 1.2rem; }
-            .project-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0e1a; }
-        ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 20px; }
-    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<div class="container">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-line" aria-hidden="true"></div>
 
-    <!-- ===== PROFILE ===== -->
-    <div class="profile">
-        <img src="profilepic.jpg" alt="Bishwas Acharya">
-        <h1>Bishwas Acharya</h1>
-        <p class="title">BCA 4<sup>th</sup> Semester | Aspiring <span>Cyber Security Specialist</span></p>
-        <p style="color: #94a3b8; margin-top: 0.3rem;">
-            <i class="fas fa-shield-alt" style="color: #38bdf8;"></i> 
-            Passionate about building secure systems &amp; protecting digital assets
-        </p>
-        <div style="margin-top: 0.8rem;">
-            <span class="badge"><i class="fas fa-graduation-cap"></i> BCA</span>
-            <span class="badge"><i class="fas fa-code"></i> +2 CS</span>
-            <span class="badge"><i class="fas fa-lock"></i> Cyber Security</span>
-        </div>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Bishwas Acharya home">
+      <span class="brand-mark" aria-hidden="true">BA.</span>
+      <span>Bishwas <span class="accent">Acharya</span></span>
+    </a>
+
+    <nav class="nav-links" id="primary-nav" data-nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="learning.html">Learning</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" data-theme-toggle type="button" aria-label="Switch to light theme">☼</button>
+      <a class="btn btn-primary btn-small" href="contact.html">Get in touch ↗</a>
+      <button class="menu-btn" data-menu-toggle type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="container hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Cybersecurity · Computer Applications</div>
+      <h1>
+        Hi, I'm <span class="gradient-text">Bishwas Acharya.</span>
+        <span>Building toward a more secure digital world.</span>
+      </h1>
+      <p class="lead">BCA student from Nepal, developing practical foundations in cybersecurity, networking, Linux and software development.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="projects.html">Explore my work ↗</a>
+        <a class="btn btn-secondary" href="about.html">More about me</a>
+      </div>
+      <div class="hero-meta">
+        <span><i class="status-dot" aria-hidden="true"></i> Learning and building</span>
+        <span>⌖ Nepal</span>
+        <span>⌘ BCA Student</span>
+      </div>
     </div>
 
-    <!-- ===== ABOUT ===== -->
-    <section>
-        <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
-        <p style="font-size: 1.05rem; color: #cbd5e1;">
-            I'm <strong style="color: #e0e7ff;">Bishwas Acharya</strong>, a BCA 4<sup>th</sup> Semester student with a strong passion for 
-            <strong style="color: #38bdf8;">Cyber Security</strong> and <strong style="color: #818cf8;">Ethical Hacking</strong>.
-            I completed my +2 in <strong>Management with Computer Science</strong>, which gave me a solid foundation in both business and technology.
-        </p>
-        <p style="font-size: 1.05rem; color: #cbd5e1; margin-top: 0.8rem;">
-            I'm currently building my skills in <strong style="color: #38bdf8;">web development</strong>, 
-            <strong style="color: #38bdf8;">networking</strong>, and <strong style="color: #38bdf8;">security</strong>.
-            My goal is to become a <strong style="color: #818cf8;">Cyber Security Specialist</strong> who can defend organizations from evolving threats.
-        </p>
-    </section>
+    <div class="terminal" aria-hidden="true">
+      <div class="terminal-top">
+        <i></i><i></i><i></i><span>bishwas@portfolio:~</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="cmd">$ whoami</span></div>
+        <div class="out">Bishwas Acharya</div>
+        <br>
+        <div><span class="cmd">$ focus --areas</span></div>
+        <div class="blue">[01]</div><div class="out">Cybersecurity fundamentals</div>
+        <div class="blue">[02]</div><div class="out">Linux &amp; networking</div>
+        <div class="blue">[03]</div><div class="out">Programming &amp; web systems</div>
+        <br>
+        <div><span class="cmd">$ current-mode</span></div>
+        <div class="out">learn → practice → document</div>
+        <div><span class="cmd">$ _</span><span class="cursor"></span></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== SKILLS ===== -->
-    <section>
-        <h2><i class="fas fa-microchip"></i> Skills Progress</h2>
-        <div class="skill-grid">
-            <div>
-                <div class="skill">
-                    <div class="label"><span>HTML</span><span>60%</span></div>
-                    <div class="bar"><div class="fill" style="width:60%;"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="label"><span>CSS</span><span>40%</span></div>
-                    <div class="bar"><div class="fill" style="width:40%;"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="label"><span>JavaScript</span><span>10%</span></div>
-                    <div class="bar"><div class="fill" style="width:10%;"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="label"><span>PHP</span><span>20%</span></div>
-                    <div class="bar"><div class="fill" style="width:20%;"></div></div>
-                </div>
-            </div>
-            <div>
-                <div class="skill">
-                    <div class="label"><span>Java(basic)</span><span>30%</span></div>
-                    <div class="bar"><div class="fill" style="width:30%;"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="label"><span>Python (Basic)</span><span>10%</span></div>
-                    <div class="bar"><div class="fill" style="width:10%;"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="label"><span>MySQL</span><span>15%</span></div>
-                    <div class="bar"><div class="fill" style="width:15%;"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="label"><span>Ubuntu</span><span>55%</span></div>
-                    <div class="bar"><div class="fill" style="width:55%;"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="label"><span>Kali Linux</span><span>10%</span></div>
-                    <div class="bar"><div class="fill" style="width:10%;"></div></div>
-                </div>
-            </div>
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">What I focus on</div>
+          <h2>Technology with a <span class="accent">security mindset.</span></h2>
         </div>
-        <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 0.8rem; text-align: center;">
-            <i class="fas fa-info-circle" style="color: #38bdf8;"></i> 
-            Currently learning: Networking, Ethical Hacking, SIEM Basics
-        </p>
-    </section>
+        <p>I am building knowledge step by step, connecting core computer science concepts with practical security work.</p>
+      </div>
 
-    <!-- ===== QUALIFICATIONS ===== -->
-    <section>
-        <h2><i class="fas fa-graduation-cap"></i> Education &amp; Certifications</h2>
-        <div style="display: grid; gap: 1rem;">
-            <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 10px; border-left: 3px solid #38bdf8;">
-                <h3 style="color: #e0e7ff;">BCA (Bachelor of Computer Applications)</h3>
-                <p style="color: #94a3b8;">4<sup>th</sup> Semester (Ongoing)</p>
-                <p style="color: #cbd5e1; font-size: 0.95rem;">Focus: Cyber Security, Web Development, Networking</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 10px; border-left: 3px solid #818cf8;">
-                <h3 style="color: #e0e7ff;">+2 Management with Computer Science</h3>
-                <p style="color: #94a3b8;">Completed</p>
-                <p style="color: #cbd5e1; font-size: 0.95rem;">Combined business knowledge with foundational programming skills</p>
-            </div>
+      <div class="grid grid-3">
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">⌁</div>
+          <div class="card-kicker">01 / Systems</div>
+          <h3>Linux &amp; Operating Systems</h3>
+          <p>Learning how operating systems work, using Linux environments and understanding system fundamentals.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">◎</div>
+          <div class="card-kicker">02 / Networks</div>
+          <h3>Networking Fundamentals</h3>
+          <p>Building an understanding of network communication, protocols, addressing and infrastructure.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">⛨</div>
+          <div class="card-kicker">03 / Security</div>
+          <h3>Cybersecurity</h3>
+          <p>Studying security principles, defensive practices, ethical testing and responsible research.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Selected work</div>
+          <h2>Learning through <span class="accent">building.</span></h2>
         </div>
-    </section>
+        <a class="btn btn-secondary btn-small" href="projects.html">All projects ↗</a>
+      </div>
 
-    <!-- ===== ROADMAP ===== -->
-    <section>
-        <h2><i class="fas fa-route"></i> My Cyber Security Roadmap</h2>
-        <ul class="timeline">
-            <li class="done"><i class="fas fa-check-circle" style="color:#22c55e; margin-right:8px;"></i> Programming Fundamentals (HTML, CSS, PHP, Java)</li>
-            <li class="done"><i class="fas fa-check-circle" style="color:#22c55e; margin-right:8px;"></i> Linux Basics (Ubuntu)</li>
-            <li class="pending"><i class="fas fa-clock" style="color:#facc15; margin-right:8px;"></i> Networking Fundamentals</li>
-            <li class="pending"><i class="fas fa-clock" style="color:#facc15; margin-right:8px;"></i> Kali Linux &amp; Ethical Hacking</li>
-            <li class="pending"><i class="fas fa-clock" style="color:#facc15; margin-right:8px;"></i> SIEM (Security Information &amp; Event Management)</li>
-            <li class="future"><i class="fas fa-lock" style="color:#64748b; margin-right:8px;"></i> CEH (Certified Ethical Hacker)</li>
-            <li class="future"><i class="fas fa-lock" style="color:#64748b; margin-right:8px;"></i> Cyber Security Specialist</li>
-        </ul>
-    </section>
+      <div class="grid grid-2">
+        <article class="card reveal">
+          <div class="card-kicker">Web application · Academic</div>
+          <h3>Cyber Crime Complaint System</h3>
+          <p>A web-platform project concept for submitting complaints, tracking status and providing an administrative workflow.</p>
+          <div class="tag-row">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">PHP / MySQL</span>
+          </div>
+        </article>
 
-    <!-- ===== PROJECTS ===== -->
-    <section>
-        <h2><i class="fas fa-folder-open"></i> Projects</h2>
-        <div class="project-grid">
+        <article class="card reveal">
+          <div class="card-kicker">Security tooling · Learning project</div>
+          <h3>Password Strength Checker</h3>
+          <p>A proposed utility for evaluating password quality using length, complexity and common-pattern checks.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Security basics</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-            <div class="project-card">
-                <h3><i class="fas fa-lock" style="color:#38bdf8;"></i> Password Strength Checker</h3>
-                <p>Python tool that analyzes password strength based on length, complexity, and common patterns. Checks against known breaches.</p>
-                <div class="tech">
-                    <span>Python</span>
-                    <span>Security</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3><i class="fas fa-shield-alt" style="color:#38bdf8;"></i> CyberShield</h3>
-                <p>Cyber Crime Complaint System – a web platform where users can file complaints, track status, and report incidents. Built with security in mind.</p>
-                <div class="tech">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>PHP</span>
-                    <span>MySQL</span>
-                    <span>XAMPP</span>
-                </div>
-                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem;">
-                    <i class="fas fa-info-circle"></i> Includes: User authentication, complaint tracking, admin dashboard
-                </p>
-            </div>
-
-            <div class="project-card">
-                <h3><i class="fas fa-chart-line" style="color:#38bdf8;"></i> SIEM Dashboard (Design)</h3>
-                <p>Interactive dashboard concept for monitoring security events, tracking user activity, and visualizing threat data in real-time.</p>
-                <div class="tech">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Design</span>
-                </div>
-                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem;">
-                    <i class="fas fa-info-circle"></i> Focus: User tracking, threat visualization, security analytics
-                </p>
-            </div>
-
+  <section class="section section-tight">
+    <div class="container">
+      <div class="card reveal cta-row">
+        <div>
+          <div class="eyebrow">Let's connect</div>
+          <h2 class="cta-title">Have a technical opportunity?</h2>
+          <p class="muted cta-text">I welcome conversations about learning, projects and entry-level opportunities.</p>
         </div>
-        <p style="text-align:center; margin-top:1.2rem; color:#64748b;">
-            <i class="fas fa-rocket" style="color:#38bdf8;"></i> More projects coming soon!
-        </p>
-    </section>
+        <a class="btn btn-primary" href="contact.html">Contact me ↗</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section>
-        <h2><i class="fas fa-envelope"></i> Contact</h2>
-        <div class="contact-info">
-            <p>
-                <i class="fas fa-at" style="color:#38bdf8;"></i> 
-                <a href="mailto:bishwasacharya.tech@gmail.com">bishwasacharya.tech@gmail.com</a>
-            </p>
-            <p style="color: #94a3b8; font-size: 0.95rem;">
-                <i class="fas fa-map-marker-alt" style="color:#38bdf8;"></i> Nepal
-            </p>
-            <div class="social-icons">
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </section>
+</main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        &copy; 2026 Bishwas Acharya &bull; Built with <i class="fas fa-heart heart"></i> for cybersecurity
-    </footer>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© <span data-year></span> Bishwas Acharya. Built with care.</span>
+    <div class="footer-links">
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:bishwasacharya.tech@gmail.com">Email</a>
+    </div>
+    <span class="mono">LEARN · BUILD · SECURE</span>
+  </div>
+</footer>
 
-</div>
+<button class="back-top" type="button" aria-label="Back to top">↑</button>
 
-<script>
-    // Animate skill bars on scroll
-    const fills = document.querySelectorAll('.fill');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.transition = 'width 1.2s ease';
-            }
-        });
-    }, { threshold: 0.3 });
-    fills.forEach(fill => observer.observe(fill));
-</script>
-
+<script src="assets/app.js"></script>
 </body>
 </html>
