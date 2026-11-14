@@ -3,15 +3,11 @@
 
   const root = document.documentElement;
 
-  /* ------------------------------------------------------------------
-   * Theme
-   * ---------------------------------------------------------------- */
+  /* Theme */
   let savedTheme = null;
   try {
     savedTheme = localStorage.getItem('bishwas-theme');
-  } catch (e) {
-    /* Storage may be unavailable (privacy mode, file://). Ignore. */
-  }
+  } catch (e) {}
 
   if (savedTheme) {
     root.dataset.theme = savedTheme;
@@ -49,16 +45,12 @@
 
     try {
       localStorage.setItem('bishwas-theme', root.dataset.theme);
-    } catch (e) {
-      /* Ignore storage errors. */
-    }
+    } catch (e) {}
 
     updateThemeLabel();
   });
 
-  /* ------------------------------------------------------------------
-   * Mobile navigation
-   * ---------------------------------------------------------------- */
+  /* Mobile navigation */
   const menuButton = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
 
@@ -83,7 +75,6 @@
     link.addEventListener('click', () => setMenuState(false))
   );
 
-  // Close the mobile menu with Escape
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && nav?.classList.contains('open')) {
       setMenuState(false);
@@ -91,7 +82,6 @@
     }
   });
 
-  // Close the mobile menu when clicking outside it
   document.addEventListener('click', event => {
     if (!nav?.classList.contains('open')) return;
     if (nav.contains(event.target) || menuButton?.contains(event.target)) {
@@ -100,7 +90,6 @@
     setMenuState(false);
   });
 
-  // Reset the menu when resizing back to desktop
   if (typeof matchMedia === 'function') {
     const desktop = matchMedia('(min-width: 721px)');
     desktop.addEventListener?.('change', event => {
@@ -108,9 +97,7 @@
     });
   }
 
-  /* ------------------------------------------------------------------
-   * Active navigation link
-   * ---------------------------------------------------------------- */
+  /* Active navigation link */
   const current = location.pathname.split('/').pop() || 'index.html';
 
   document.querySelectorAll('.nav-links a').forEach(a => {
@@ -120,9 +107,7 @@
     }
   });
 
-  /* ------------------------------------------------------------------
-   * Scroll progress + back-to-top
-   * ---------------------------------------------------------------- */
+  /* Scroll progress + back-to-top */
   const progress = document.querySelector('.progress-line');
   const backTop = document.querySelector('.back-top');
 
@@ -147,9 +132,7 @@
     scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   });
 
-  /* ------------------------------------------------------------------
-   * Scroll reveal
-   * ---------------------------------------------------------------- */
+  /* Scroll reveal */
   const revealElements = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window) {
@@ -167,13 +150,10 @@
 
     revealElements.forEach(el => observer.observe(el));
   } else {
-    // Fallback: show everything immediately
     revealElements.forEach(el => el.classList.add('visible'));
   }
 
-  /* ------------------------------------------------------------------
-   * Project category filter
-   * ---------------------------------------------------------------- */
+  /* Project filter */
   const filterButtons = document.querySelectorAll('[data-filter]');
   const projects = document.querySelectorAll('[data-category]');
 
@@ -195,9 +175,7 @@
     });
   });
 
-  /* ------------------------------------------------------------------
-   * Contact form (mailto fallback)
-   * ---------------------------------------------------------------- */
+  /* Contact form */
   const form = document.querySelector('[data-contact-form]');
 
   form?.addEventListener('submit', event => {
@@ -222,9 +200,7 @@
       `mailto:bishwasacharya.tech@gmail.com?subject=${subject}&body=${body}`;
   });
 
-  /* ------------------------------------------------------------------
-   * Automatic copyright year
-   * ---------------------------------------------------------------- */
+  /* Copyright year */
   document.querySelectorAll('[data-year]').forEach(el => {
     el.textContent = new Date().getFullYear();
   });

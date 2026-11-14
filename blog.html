@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Technical Articles and learning notes by Bishwas Acharya.">
+<meta name="theme-color" content="#0d1117" id="theme-color-meta">
+<title>Blog | Bishwas Acharya</title>
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('bishwas-theme');
+      if (t) {
+        document.documentElement.dataset.theme = t;
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.content = t === 'light' ? '#f5f8fc' : '#0d1117';
+      }
+    } catch (e) {}
+    document.documentElement.classList.add('js');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-line" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Bishwas Acharya home">
+      <span class="brand-mark" aria-hidden="true">BA.</span>
+      <span>Bishwas <span class="accent">Acharya</span></span>
+    </a>
+    <nav class="nav-links" id="primary-nav" data-nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="labs.html">Labs</a>
+      <a href="certifications.html">Certificates</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" data-theme-toggle type="button" aria-label="Switch to light theme">☼</button>
+      <a class="btn btn-primary btn-small" href="contact.html">Get in touch ↗</a>
+      <button class="menu-btn" data-menu-toggle type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Blog</div>
+      <div class="eyebrow">Sharing Knowledge</div>
+      <h1>Technical <span class="gradient-text">Articles</span></h1>
+      <p class="lead">Notes, explanations and lessons from my learning.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-empty card reveal">
+        <div class="blog-icon" aria-hidden="true">✎</div>
+        <h3>Technical writing is coming.</h3>
+        <p>I plan to publish technical explanations, practical tutorials and IT support learning notes.</p>
+        <a href="https://github.com/bishwasacharyatech" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">Follow my work on GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© <span data-year></span> Bishwas Acharya. Built with care.</span>
+    <div class="footer-links">
+      <a href="resume.html">Resume</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:bishwasacharya.tech@gmail.com">Email</a>
+    </div>
+    <span class="mono">LEARN · BUILD · SECURE</span>
+  </div>
+</footer>
+<button class="back-top" type="button" aria-label="Back to top">↑</button>
+<script src="assets/app.js"></script>
+</body>
+</html>
